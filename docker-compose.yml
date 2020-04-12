@@ -1,0 +1,13 @@
+version: '3'
+services:
+  nuxt-app:
+    # Dockerfileの場所
+    build: .
+    working_dir: /src
+    command: yarn run dev
+    # ホストOSとコンテナ内でソースコードを共有する
+    volumes:
+      - ./src:/src
+    # コンテナ内部の3000を外部から5000でアクセスする
+    ports:
+      - 5000:3000
